@@ -1,0 +1,13 @@
+{
+  "name": "FoSAP Moodle Util",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "misc utils to simplify my workflows at RWTH",
+  "homepage_url": "https://github.com/netcodeyyy",
+  "browser_action": {
+    "default_icon": "assets/logo.png",
+    "default_title": "RWTHutil",
+    "default_popup": "index.html"
+  },
+  "permissions": ["https://*/*", "http://*/*", "tabs"]
+}

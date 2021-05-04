@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>FoSAP Moodle Util</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div class="card card-body mb-0 border-0">
+      <div>
+        <h3 class="text-center">FoSAP Moodle Util</h3>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3>Nutzung auf eigene Gefahr!!!</h3>
+          <p>Ich bin nicht dafür verantwortlich wenn etwas schiefgeht.</p>
+          <h6>Anleitung:</h6>
+          <ol>
+            <li>
+              Zur Bewertungstabelle navigieren und dort ALLE Einträge
+              gleichzeitig anzeigen lassen (unten rechts an der Tabelle
+              einstellbar)
+            </li>
+            <li>
+              "Aufgaben bewerten" anklicken und die Textdatei mit den
+              Bewertungen auswählen
+              <p><strong>
+              Jede Zeile der Textdatei hat dabei folgendes Format:
+              </strong>
+                <p>
+                  N1[tab]M1[tab]N2[tab]M2[tab]N3[tab]M3[tab]erreichte_Punkte
+                </p>
+                N steht hier für Name, M für Matrikelnummer, [tab] ist ein Tab. Der Name ist dabei der vollständige Name des Studis.
+                <strong>
+                Das Format erreicht man am besten in dem man die Werte wiefolgt nebeneinander in Zellen schreibt:
+                </strong>
+                <br>
+                <p>
+                  N1|M1|N2|M2|N3|M3|erreichte_Punkte
+                </p>
+                wobei | für die Zellgrenze steht
+                und dann genau die so beschriebenen Zellen kopiert und in eine Textdatei kopiert.
+              </p>
+              <p>
+                In der Datei eval.js in func/moodle/ kann man einstellen ob die angegeben Namen mit den Matrikelnummern in der Bewertungstabelle abgegelichen werden sollen.
+                Das dient als Safety-Mechanismus, falls man eine Matrikelnummer falsch abgeschrieben haben sollte (z.B. bei handschriftlichen Abgaben). Das ganze kann dort
+                deaktiviert werden, <strong>das Format der Zeilen bleibt aber gleich</strong>, d.h. man hat dann [tab]M1[tab][tab]M2[tab][tab]M3[tab]erreichte_Punkte in jeder Zeile
+                der Textdatei (dafür die Zellen der Namen in Excel einfach leer lassen).
+              </p>
+              <p>
+                In der Datei kann auch ein Feedback-Kommentar eingetragen werden der jedem Studi (nicht nur denen die die Abgabe getätigt haben) den man bewertet als Feedback eingetragen wird.
+              </p>
+            </li>
+            <li>
+              Das Tool füllt die Zellen dann automatisch aus, das kann ein paar
+              Sekunden dauern.
+            </li>
+            <li>
+              Browser-Konsole öffnen und in der Javascript-Konsole gucken ob
+              Fehlermeldungen ausgegeben wurden. Diese sagen bei welchen Studis
+              etwas schiefgelaufen ist. Generell ist das Tool übervorsichtig.
+              Bevor es versehentlich Werte überschreibt, tut es lieber nichts.
+              Diese Werte können dann manuell nachgetragen werden.
+            </li>
+            <li>Am besten nochmal Bewertungen stichprobenhaft anschauen ob alles stimmt.</li>
+            <li>
+              Ganz nach unten scrollen und Bewertungsänderungen übernehmen
+            </li>
+          </ol>
+          <div class="d-grid gap-2">
+            <button
+              id="eval_homework"
+              type="button"
+              class="btn btn-lg btn-primary"
+            >
+              Abgaben bewerten
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
